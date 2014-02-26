@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.mychal</groupId>
+	<artifactId>projet-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Super POM project</name>
+
+	<properties>
+		<version.hibernate>4.3.1.Final</version.hibernate>
+	</properties>
+
+	<!-- indique ce qui est autorisé comme dependance avec la version associée -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${version.hibernate}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- dépendance réellement factorisée dans tous les sous modules !-) -->
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+	</dependencies>
+
+	<modules>
+		<!-- Pour gérer un module physique hors du parent, chemin relatif <module>../../module1</module> -->
+		<module>module1</module>
+		<module>module2</module>
+	</modules>
+</project>
